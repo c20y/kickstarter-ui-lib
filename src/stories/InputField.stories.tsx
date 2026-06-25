@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
 import { Text } from "@twilio-paste/text";
-import { InputField } from "../components/input";
+import { InputField } from "../components/InputField";
 import type { InputBoxTypes } from "@twilio-paste/input-box";
 
 const meta: Meta<typeof InputField> = {
