@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
+import { Text } from "@twilio-paste/core/text";
 import { TextareaField } from "../components/TextAreaField";
 
 const meta: Meta<typeof TextareaField> = {
@@ -109,4 +110,83 @@ export const TypeInteraction: Story = {
     await userEvent.type(textarea, "Line one{enter}Line two");
     await expect(textarea).toHaveValue("Line one\nLine two");
   },
+};
+
+export const ReadOnlyInverse: Story = {
+  name: "Read-only (inverse)",
+  args: {
+    readOnly: true,
+    value: "Read-only value",
+    placeholder: undefined,
+    variant: "inverse",
+  },
+  parameters: {
+    pasteTheme: "default",
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{ backgroundColor: "#1a1a2e", padding: "2rem", borderRadius: 8 }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const WithPrefix: Story = {
+  render: (args) => (
+    <TextareaField
+      {...args}
+      insertBefore={
+        <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+          //
+        </Text>
+      }
+    />
+  ),
+  args: {
+    id: "code-textarea",
+    label: "Code snippet",
+    placeholder: "Paste your code here…",
+  },
+};
+
+export const WithSuffix: Story = {
+  render: (args) => (
+    <TextareaField
+      {...args}
+      insertAfter={
+        <Text as="span" color="colorTextWeak" fontSize="fontSize30">
+          chars
+        </Text>
+      }
+    />
+  ),
+  args: {
+    id: "notes-suffix-textarea",
+    label: "Notes",
+    placeholder: "Enter notes…",
+    helpText: "Character count shown on the right.",
+  },
+};
+
+export const ErrorInverse: Story = {
+  name: "Error (inverse)",
+  args: {
+    errorText: "This field is required.",
+    variant: "inverse",
+  },
+  parameters: {
+    pasteTheme: "default",
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{ backgroundColor: "#1a1a2e", padding: "2rem", borderRadius: 8 }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
 };
