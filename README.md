@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# Kickstarter UI Lib
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Bundles Twilio Paste components to create opinionated, reusable form-field composites.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Node.js 22+
+- npm 10+
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Running Storybook
+
+Storybook is the primary environment for developing and browsing components. It runs on port 6006.
+
+```bash
+npm run storybook
+```
+
+Open [http://localhost:6006](http://localhost:6006) in your browser. Components are listed in the sidebar under **Components**. Each component has an **Autodocs** page showing all props and interactive controls, plus individual stories demonstrating specific states.
+
+## Other Commands
+
+```bash
+npm run dev          # Vite dev server (app preview, not the primary dev environment)
+npm run build        # TypeScript check + production build
+npm run lint         # Oxlint
+npm run build-storybook  # Static Storybook build
+```
+
+## Theming
+
+Every story is wrapped in Twilio Paste's `Theme.Provider`. Use the **Theme** toolbar in Storybook to switch between `default`, `twilio`, `twilio-dark`, `dark`, `sendgrid`, and `evergreen` themes and preview how components look across all supported surfaces.
