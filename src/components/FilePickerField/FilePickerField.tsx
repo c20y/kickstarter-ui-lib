@@ -1,9 +1,9 @@
 import React from "react";
 import { FilePicker, FilePickerButton } from "@twilio-paste/core/file-picker";
-import type { FilePickerProps } from "@twilio-paste/core/file-picker";
+import type { FilePickerProps, FilePickerButtonProps } from "@twilio-paste/core/file-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
-import { Box } from "@twilio-paste/core/box";
+import { FormControl } from "@twilio-paste/core/form";
 
 export interface FilePickerFieldProps extends Omit<
   FilePickerProps,
@@ -15,6 +15,7 @@ export interface FilePickerFieldProps extends Omit<
   errorText?: string;
   labelOptional?: boolean;
   buttonText?: string;
+  buttonVariant?: FilePickerButtonProps["variant"];
 }
 
 export const FilePickerField = React.forwardRef<
@@ -31,6 +32,7 @@ export const FilePickerField = React.forwardRef<
       disabled,
       required,
       buttonText = "Choose file",
+      buttonVariant = "secondary",
       ...rest
     },
     ref,
@@ -38,7 +40,7 @@ export const FilePickerField = React.forwardRef<
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
     return (
-      <Box>
+      <FormControl>
         <Label
           htmlFor={id}
           required={required}
@@ -56,7 +58,7 @@ export const FilePickerField = React.forwardRef<
           required={required}
           {...rest}
         >
-          <FilePickerButton variant="secondary">{buttonText}</FilePickerButton>
+          <FilePickerButton variant={buttonVariant}>{buttonText}</FilePickerButton>
         </FilePicker>
         {(helpText || errorText) && (
           <HelpText
@@ -66,7 +68,7 @@ export const FilePickerField = React.forwardRef<
             {errorText ?? helpText}
           </HelpText>
         )}
-      </Box>
+      </FormControl>
     );
   },
 );

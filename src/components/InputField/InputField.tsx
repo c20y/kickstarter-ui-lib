@@ -3,7 +3,7 @@ import { Input } from "@twilio-paste/core/input";
 import type { InputBoxTypes } from "@twilio-paste/core/input-box";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
-import { Box } from "@twilio-paste/core/box";
+import { FormControl } from "@twilio-paste/core/form";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 export interface InputFieldProps extends Omit<
@@ -50,7 +50,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
     return (
-      <Box>
+      <FormControl>
         <Label
           htmlFor={id}
           required={required}
@@ -87,7 +87,7 @@ export const InputField = React.forwardRef<HTMLInputElement, InputFieldProps>(
             {errorText ?? helpText}
           </HelpText>
         )}
-      </Box>
+      </FormControl>
     );
   },
 );

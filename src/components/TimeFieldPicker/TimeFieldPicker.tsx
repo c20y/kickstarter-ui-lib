@@ -3,7 +3,7 @@ import { TimePicker } from "@twilio-paste/core/time-picker";
 import type { TimePickerProps } from "@twilio-paste/core/time-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
-import { Box } from "@twilio-paste/core/box";
+import { FormControl } from "@twilio-paste/core/form";
 
 export { formatReturnTime } from "@twilio-paste/core/time-picker";
 
@@ -39,7 +39,7 @@ export const TimeFieldPicker = React.forwardRef<
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
     return (
-      <Box>
+      <FormControl>
         <Label
           htmlFor={id}
           required={required}
@@ -68,7 +68,7 @@ export const TimeFieldPicker = React.forwardRef<
             {errorText ?? helpText}
           </HelpText>
         )}
-      </Box>
+      </FormControl>
     );
   },
 );

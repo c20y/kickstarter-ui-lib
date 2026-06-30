@@ -3,7 +3,7 @@ import { Select, Option, OptionGroup } from "@twilio-paste/core/select";
 import type { OptionProps, OptionGroupProps } from "@twilio-paste/core/select";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
-import { Box } from "@twilio-paste/core/box";
+import { FormControl } from "@twilio-paste/core/form";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 export interface SelectOption extends Omit<
@@ -62,7 +62,7 @@ export const SelectField = React.forwardRef<
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
     return (
-      <Box>
+      <FormControl>
         <Label
           htmlFor={id}
           required={required}
@@ -113,7 +113,7 @@ export const SelectField = React.forwardRef<
             {errorText ?? helpText}
           </HelpText>
         )}
-      </Box>
+      </FormControl>
     );
   },
 );

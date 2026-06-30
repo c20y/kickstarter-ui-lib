@@ -2,7 +2,7 @@ import React from "react";
 import { TextArea } from "@twilio-paste/core/textarea";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
-import { Box } from "@twilio-paste/core/box";
+import { FormControl } from "@twilio-paste/core/form";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 export interface TextareaFieldProps extends Omit<
@@ -52,7 +52,7 @@ export const TextareaField = React.forwardRef<
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
     return (
-      <Box>
+      <FormControl>
         <Label
           htmlFor={id}
           required={required}
@@ -87,7 +87,7 @@ export const TextareaField = React.forwardRef<
             {errorText ?? helpText}
           </HelpText>
         )}
-      </Box>
+      </FormControl>
     );
   },
 );
