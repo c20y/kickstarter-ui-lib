@@ -3,7 +3,7 @@ import { DatePicker } from "@twilio-paste/core/date-picker";
 import type { DatePickerProps } from "@twilio-paste/core/date-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
-import { Box } from "@twilio-paste/core/box";
+import { FormControl } from "@twilio-paste/core/form";
 
 export { formatReturnDate } from "@twilio-paste/core/date-picker";
 
@@ -39,7 +39,7 @@ export const DateFieldPicker = React.forwardRef<
     const descriptionId = helpText || errorText ? `${id}-help` : undefined;
 
     return (
-      <Box>
+      <FormControl>
         <Label
           htmlFor={id}
           required={required}
@@ -68,7 +68,7 @@ export const DateFieldPicker = React.forwardRef<
             {errorText ?? helpText}
           </HelpText>
         )}
-      </Box>
+      </FormControl>
     );
   },
 );

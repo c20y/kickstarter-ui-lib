@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Box } from "@twilio-paste/core/box";
+import { Form, FormActions } from "@twilio-paste/core/form";
 import { Stack } from "@twilio-paste/core/stack";
 import { Button } from "@twilio-paste/core/button";
 import { InputField } from "../InputField/InputField";
@@ -88,10 +88,9 @@ export const CreateAccount: Story = {
     const [terms, setTerms] = useState(false);
 
     return (
-      <Box
-        as="form"
+      <Form
         maxWidth="size60"
-        onSubmit={(e: React.SubmitEvent<HTMLFormElement>) => e.preventDefault()}
+        onSubmit={(e) => e.preventDefault()}
       >
         <Stack orientation="vertical" spacing="space70">
           {/* Normal required input */}
@@ -189,13 +188,13 @@ export const CreateAccount: Story = {
             required
           />
 
-          <Box>
+          <FormActions>
             <Button variant="primary" type="submit">
               Create account
             </Button>
-          </Box>
+          </FormActions>
         </Stack>
-      </Box>
+      </Form>
     );
   },
 };

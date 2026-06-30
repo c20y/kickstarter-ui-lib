@@ -46,16 +46,16 @@ export const Disabled: Story = {
   },
 };
 
+export const PrimaryButton: Story = {
+  args: {
+    buttonVariant: "primary",
+    helpText: "Click to upload a file.",
+  },
+};
+
 export const AcceptImages: Story = {
   args: {
     accept: "image/*",
     helpText: "Images only (JPG, PNG, GIF, WebP).",
-  },
-};
-
-export const MultipleFiles: Story = {
-  args: {
-    multiple: true,
-    helpText: "You may select more than one file.",
   },
 };

@@ -95,6 +95,13 @@ describe("FilePickerField", () => {
       expect(screen.getByLabelText("Profile photo")).toHaveAttribute("accept", "image/*");
     });
 
+    it("renders without error when a non-default buttonVariant is provided", () => {
+      renderWithTheme(
+        <FilePickerField {...defaultProps} buttonVariant="primary" />,
+      );
+      expect(screen.getByText("Choose file")).toBeInTheDocument();
+    });
+
     it("forwards ref to the underlying HTMLInputElement", () => {
       const ref = React.createRef<HTMLInputElement>();
       renderWithTheme(<FilePickerField {...defaultProps} ref={ref} />);
