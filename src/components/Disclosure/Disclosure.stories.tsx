@@ -11,6 +11,7 @@ const meta: Meta<typeof Disclosure> = {
   tags: ["autodocs"],
   args: {
     heading: "What is Twilio Flex?",
+    headingAs: "h2",
     children:
       "Twilio Flex is a programmable cloud contact center platform that gives you complete control over your contact center experience.",
   },
@@ -20,6 +21,11 @@ export default meta;
 type Story = StoryObj<typeof Disclosure>;
 
 export const Default: Story = {};
+
+export const CustomHeadingLevel: Story = {
+  name: "Nested under an h3 section",
+  args: { headingAs: "h3" },
+};
 
 export const DefaultExpanded: Story = {
   args: { defaultVisible: true },
