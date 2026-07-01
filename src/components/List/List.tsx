@@ -1,18 +1,5 @@
 import { OrderedList, UnorderedList, ListItem } from "@twilio-paste/core/list";
-import type { UnorderedListProps } from "@twilio-paste/core/list";
-
-export interface ListEntry {
-  text: React.ReactNode;
-  subList?: ListProps;
-}
-
-export interface ListProps extends Omit<
-  UnorderedListProps,
-  "children" | "element" | "type"
-> {
-  type: "ol" | "ul";
-  items: ListEntry[];
-}
+import type { ListProps } from "./types";
 
 export const List = ({ type, items, ...rest }: ListProps) => {
   const listItems = items.map((item, i) => (
