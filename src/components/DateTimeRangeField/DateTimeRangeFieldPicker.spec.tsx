@@ -119,7 +119,7 @@ describe("DateTimeRangePickerField", () => {
   });
 
   describe("help text", () => {
-    it("shows helpText on the end time field only", () => {
+    it("renders helpText once for the whole field group", () => {
       renderWithTheme(
         <DateTimeRangePickerField
           {...defaultProps}
@@ -127,6 +127,25 @@ describe("DateTimeRangePickerField", () => {
         />,
       );
       expect(screen.getByText("Select a booking window.")).toBeInTheDocument();
+    });
+
+    it("associates helpText with the fieldset via aria-describedby", () => {
+      renderWithTheme(
+        <DateTimeRangePickerField
+          {...defaultProps}
+          helpText="Select a booking window."
+        />,
+      );
+      const group = screen.getByRole("group");
+      const description = screen.getByText("Select a booking window.");
+      expect(group).toHaveAttribute("aria-describedby", description.id);
+    });
+
+    it("renders no description when helpText is not provided", () => {
+      renderWithTheme(<DateTimeRangePickerField {...defaultProps} />);
+      expect(
+        screen.queryByText("Select a booking window."),
+      ).not.toBeInTheDocument();
     });
   });
 

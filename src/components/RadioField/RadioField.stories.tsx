@@ -2,7 +2,7 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
 import { RadioField } from "./RadioField";
-import type { RadioOption } from "./RadioField";
+import type { RadioOption } from "./types";
 
 const ROLE_OPTIONS: RadioOption[] = [
   { value: "admin", label: "Admin" },

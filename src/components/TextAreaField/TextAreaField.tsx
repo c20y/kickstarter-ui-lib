@@ -3,27 +3,7 @@ import { TextArea } from "@twilio-paste/core/textarea";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
 import { FormControl } from "@twilio-paste/core/form";
-import type { HTMLPasteProps } from "@twilio-paste/types";
-
-export interface TextareaFieldProps extends Omit<
-  HTMLPasteProps<"textarea">,
-  "maxRows"
-> {
-  id: string;
-  label: string;
-  helpText?: string;
-  errorText?: string;
-  required?: boolean;
-  disabled?: boolean;
-  readOnly?: boolean;
-  labelOptional?: boolean;
-  insertBefore?: React.ReactNode;
-  insertAfter?: React.ReactNode;
-  variant?: "default" | "inverse";
-  minRows?: number;
-  maxRows?: number;
-  resize?: "none" | "vertical";
-}
+import type { TextareaFieldProps } from "./types";
 
 export const TextareaField = React.forwardRef<
   HTMLTextAreaElement,

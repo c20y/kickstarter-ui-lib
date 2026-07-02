@@ -1,22 +1,11 @@
 import React from "react";
 import { DatePicker } from "@twilio-paste/core/date-picker";
-import type { DatePickerProps } from "@twilio-paste/core/date-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
 import { FormControl } from "@twilio-paste/core/form";
+import type { DateFieldPickerProps } from "./types";
 
 export { formatReturnDate } from "@twilio-paste/core/date-picker";
-
-export interface DateFieldPickerProps extends Omit<
-  DatePickerProps,
-  "hasError" | "element" | "id"
-> {
-  id: string;
-  label: string;
-  helpText?: string;
-  errorText?: string;
-  labelOptional?: boolean;
-}
 
 export const DateFieldPicker = React.forwardRef<
   HTMLInputElement,

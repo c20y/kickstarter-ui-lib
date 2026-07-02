@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Theme } from "@twilio-paste/core/theme";
 import { SelectField } from "./SelectField";
-import type { SelectOption, SelectOptionGroup } from "./SelectField";
+import type { SelectOption, SelectOptionGroup } from "./types";
 
 const renderWithTheme = (ui: React.ReactElement) =>
   render(<Theme.Provider theme="default">{ui}</Theme.Provider>);

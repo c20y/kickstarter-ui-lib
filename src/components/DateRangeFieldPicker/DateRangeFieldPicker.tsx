@@ -1,25 +1,7 @@
-import React from "react";
 import { Stack } from "@twilio-paste/core/stack";
+import { FormSection, FormSectionDescription } from "@twilio-paste/core/form";
 import { DateFieldPicker } from "../DateFieldPicker/DateFieldPicker";
-
-export interface DateRangeFieldPickerProps {
-  orientation?: "horizontal" | "vertical";
-  startId: string;
-  endId: string;
-  startLabel?: string;
-  endLabel?: string;
-  startValue?: string;
-  endValue?: string;
-  onStartChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onEndChange?: React.ChangeEventHandler<HTMLInputElement>;
-  startErrorText?: string;
-  endErrorText?: string;
-  helpText?: string;
-  min?: string;
-  max?: string;
-  required?: boolean;
-  disabled?: boolean;
-}
+import type { DateRangeFieldPickerProps } from "./types";
 
 export const DateRangeFieldPicker = ({
   orientation = "vertical",
@@ -37,33 +19,36 @@ export const DateRangeFieldPicker = ({
   min,
   max,
   required,
+
   disabled,
 }: DateRangeFieldPickerProps) => (
-  <Stack orientation={orientation} spacing="space70">
-    <DateFieldPicker
-      id={startId}
-      label={startLabel}
-      value={startValue}
-      onChange={onStartChange}
-      errorText={startErrorText}
-      min={min}
-      max={endValue || max}
-      disabled={disabled}
-      required={required}
-    />
-    <DateFieldPicker
-      id={endId}
-      label={endLabel}
-      value={endValue}
-      onChange={onEndChange}
-      errorText={endErrorText}
-      helpText={helpText}
-      min={startValue || min}
-      max={max}
-      disabled={disabled}
-      required={required}
-    />
-  </Stack>
+  <FormSection>
+    <Stack orientation={orientation} spacing="space70">
+      <DateFieldPicker
+        id={startId}
+        label={startLabel}
+        value={startValue}
+        onChange={onStartChange}
+        errorText={startErrorText}
+        min={min}
+        max={endValue || max}
+        disabled={disabled}
+        required={required}
+      />
+      <DateFieldPicker
+        id={endId}
+        label={endLabel}
+        value={endValue}
+        onChange={onEndChange}
+        errorText={endErrorText}
+        min={startValue || min}
+        max={max}
+        disabled={disabled}
+        required={required}
+      />
+    </Stack>
+    {helpText && <FormSectionDescription>{helpText}</FormSectionDescription>}
+  </FormSection>
 );
 
 DateRangeFieldPicker.displayName = "DateRangeFieldPicker";

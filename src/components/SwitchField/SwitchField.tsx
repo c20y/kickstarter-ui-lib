@@ -1,23 +1,7 @@
-import React, { type ReactNode } from "react";
+import React from "react";
 import { Switch } from "@twilio-paste/core/switch";
 import { HelpText } from "@twilio-paste/core/help-text";
-import type { HTMLPasteProps } from "@twilio-paste/types";
-
-export interface SwitchFieldProps extends Omit<
-  HTMLPasteProps<"input">,
-  "children"
-> {
-  id: string;
-  label: NonNullable<ReactNode>;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  helpText?: string;
-  errorText?: string;
-  checked?: boolean;
-  defaultChecked?: boolean;
-  disabled?: boolean;
-  required?: boolean;
-  i18nRequiredLabel?: string;
-}
+import type { SwitchFieldProps } from "./types";
 
 export const SwitchField = React.forwardRef<HTMLInputElement, SwitchFieldProps>(
   ({ id, label, helpText, errorText, ...rest }, ref) => {

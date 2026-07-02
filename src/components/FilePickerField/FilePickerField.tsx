@@ -1,22 +1,9 @@
 import React from "react";
 import { FilePicker, FilePickerButton } from "@twilio-paste/core/file-picker";
-import type { FilePickerProps, FilePickerButtonProps } from "@twilio-paste/core/file-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
 import { FormControl } from "@twilio-paste/core/form";
-
-export interface FilePickerFieldProps extends Omit<
-  FilePickerProps,
-  "hasError" | "element" | "id" | "children"
-> {
-  id: string;
-  label: string;
-  helpText?: string;
-  errorText?: string;
-  labelOptional?: boolean;
-  buttonText?: string;
-  buttonVariant?: FilePickerButtonProps["variant"];
-}
+import type { FilePickerFieldProps } from "./types";
 
 export const FilePickerField = React.forwardRef<
   HTMLInputElement,

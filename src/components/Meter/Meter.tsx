@@ -21,6 +21,12 @@ export const Meter = ({
 }: MeterProps) => {
   const descriptionId = helpText ? `${id}-help` : undefined;
 
+  if ((minValue !== 0 || maxValue !== 100) && !minLabel && !maxLabel) {
+    console.warn(
+      `Meter "${id}" uses a non 0-100 scale (${minValue}-${maxValue}) without minLabel/maxLabel — the scale won't be clear to users.`,
+    );
+  }
+
   return (
     <Box>
       <MeterLabel htmlFor={id} valueLabel={valueLabel}>

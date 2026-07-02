@@ -3,18 +3,8 @@ import {
   EditableCodeBlockWrapper,
   EditableCodeBlockHeader,
 } from "@twilio-paste/core/editable-code-block";
-import type { EditableCodeBlockProps } from "@twilio-paste/core/editable-code-block";
 import { HelpText } from "@twilio-paste/core/help-text";
-
-export interface EditableCodeBlockFieldProps extends Omit<
-  EditableCodeBlockProps,
-  "element" | "children"
-> {
-  label: string;
-  labelAs?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  helpText?: string;
-  errorText?: string;
-}
+import type { EditableCodeBlockFieldProps } from "./types";
 
 export const EditableCodeBlockField = ({
   label,

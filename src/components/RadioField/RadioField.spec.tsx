@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { Theme } from "@twilio-paste/core/theme";
 import { RadioField } from "./RadioField";
-import type { RadioOption } from "./RadioField";
+import type { RadioOption } from "./types";
 
 const renderWithTheme = (ui: React.ReactElement) =>
   render(<Theme.Provider theme="default">{ui}</Theme.Provider>);

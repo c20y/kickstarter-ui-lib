@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { fn, userEvent, within, expect } from "storybook/test";
 import { Text } from "@twilio-paste/core/text";
 import { SelectField } from "./SelectField";
-import type { SelectOption, SelectOptionGroup } from "./SelectField";
+import type { SelectOption, SelectOptionGroup } from "./types";
 
 const DEFAULT_OPTIONS: Array<SelectOption | SelectOptionGroup> = [
   { value: "", label: "-- Select --" },

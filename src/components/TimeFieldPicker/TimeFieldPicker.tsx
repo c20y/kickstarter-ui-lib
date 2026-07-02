@@ -1,22 +1,11 @@
 import React from "react";
 import { TimePicker } from "@twilio-paste/core/time-picker";
-import type { TimePickerProps } from "@twilio-paste/core/time-picker";
 import { Label } from "@twilio-paste/core/label";
 import { HelpText } from "@twilio-paste/core/help-text";
 import { FormControl } from "@twilio-paste/core/form";
+import type { TimeFieldPickerProps } from "./types";
 
 export { formatReturnTime } from "@twilio-paste/core/time-picker";
-
-export interface TimeFieldPickerProps extends Omit<
-  TimePickerProps,
-  "hasError" | "element" | "id"
-> {
-  id: string;
-  label: string;
-  helpText?: string;
-  errorText?: string;
-  labelOptional?: boolean;
-}
 
 export const TimeFieldPicker = React.forwardRef<
   HTMLInputElement,

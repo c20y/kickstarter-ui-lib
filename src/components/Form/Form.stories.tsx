@@ -11,8 +11,8 @@ import { SwitchField } from "../SwitchField/SwitchField";
 import type {
   SelectOption,
   SelectOptionGroup,
-} from "../SelectField/SelectField";
-import type { RadioOption } from "../RadioField/RadioField";
+} from "../SelectField/types";
+import type { RadioOption } from "../RadioField/types";
 
 // Grouped options — shows OptionGroup rendering
 const COUNTRY_OPTIONS: Array<SelectOption | SelectOptionGroup> = [

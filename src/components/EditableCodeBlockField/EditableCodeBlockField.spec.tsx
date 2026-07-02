@@ -3,6 +3,24 @@ import { render, screen } from "@testing-library/react";
 import { Theme } from "@twilio-paste/core/theme";
 import { EditableCodeBlockField } from "./EditableCodeBlockField";
 
+// Paste's EditableCodeBlock bundles Monaco, which loads via a real `<script>`
+// tag pointed at a CDN — happy-dom refuses to fetch it, leaving an unhandled
+// rejection per test. These specs only assert on the loading state, so stub
+// the whole module rather than rendering the real (network-dependent) editor.
+vi.mock("@twilio-paste/core/editable-code-block", () => ({
+  EditableCodeBlockWrapper: ({ children }: { children?: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
+  EditableCodeBlockHeader: ({ children }: { children?: React.ReactNode }) => (
+    <div>{children}</div>
+  ),
+  EditableCodeBlock: ({
+    i18nLoadingLabel = "Loading code...",
+  }: {
+    i18nLoadingLabel?: string;
+  }) => <div>{i18nLoadingLabel}</div>,
+}));
+
 const renderWithTheme = (ui: React.ReactElement) =>
   render(<Theme.Provider theme="default">{ui}</Theme.Provider>);
 

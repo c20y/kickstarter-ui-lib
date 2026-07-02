@@ -63,11 +63,25 @@ describe("DateRangeFieldPicker", () => {
   });
 
   describe("help text", () => {
-    it("shows helpText on the end picker", () => {
+    it("renders helpText once for the whole field group", () => {
       renderWithTheme(
         <DateRangeFieldPicker {...defaultProps} helpText="Select a date range." />,
       );
       expect(screen.getByText("Select a date range.")).toBeInTheDocument();
+    });
+
+    it("associates helpText with the fieldset via aria-describedby", () => {
+      renderWithTheme(
+        <DateRangeFieldPicker {...defaultProps} helpText="Select a date range." />,
+      );
+      const group = screen.getByRole("group");
+      const description = screen.getByText("Select a date range.");
+      expect(group).toHaveAttribute("aria-describedby", description.id);
+    });
+
+    it("renders no description when helpText is not provided", () => {
+      renderWithTheme(<DateRangeFieldPicker {...defaultProps} />);
+      expect(screen.queryByText("Select a date range.")).not.toBeInTheDocument();
     });
   });
 
